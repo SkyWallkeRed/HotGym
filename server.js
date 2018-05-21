@@ -48,7 +48,8 @@ app.post('/trainees', (req, res) => {
     var newTrainee = new Trainee(req.body);
     console.log(newTrainee.fullName)
     if (newTrainee.fullName == undefined) {
-        console.error(err);
+        console.error("THERE IS NO FULL NAME");
+        res.sendStatus(500).send("there is no full name");
     } else {
         newTrainee.save((err, post) => {
 
